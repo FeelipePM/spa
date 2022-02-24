@@ -1,11 +1,13 @@
 import React from "react";
-import Button from "@mui/material/Button";
+
+import { GlobalStyles } from "../themes/GlobalStyle/index";
+import { SignInPage } from "./pages/SignInPage/index";
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Welcome to React!</h1>
-      <Button variant="contained">Hello World</Button>
+    <div>
+      <SignInPage />
+      <GlobalStyles />
     </div>
   );
 };
