@@ -1,28 +1,43 @@
 import React from "react";
+import { useMutation } from "@apollo/client";
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
+import { AUTH_USER } from "../../../gql/mutations";
 
 export const SignInPage = () => {
+  const [signIn, { loading, error }] = useMutation(AUTH_USER);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = new FormData(event.target);
 
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+    signIn({
+      variables: {
+        email: data.get("email"),
+        password: data.get("password"),
+      },
+    }).then((res) => {
+      const { token } = res.data.signIn;
+
+      if (loading) return "Submitting...";
+      if (error) return `Submission error! ${error.message}`;
+
+      localStorage.setItem("token", token);
     });
+
+    event.target.reset();
   };
 
   return (
-    <Grid container component="main" sx={{ height: "100vh" }}>
+    <Container component="main" sx={{ height: "100vh" }}>
       <Box
         sx={{
           my: 8,
@@ -33,7 +48,7 @@ export const SignInPage = () => {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, bgcolor: "#1565C0" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -69,10 +84,10 @@ export const SignInPage = () => {
             Sign In
           </Button>
         </Box>
-        <Link href="#" variant="body2">
+        <Link href="/signup" variant="body2">
           {"Don't have an account? Sign Up"}
         </Link>
       </Box>
-    </Grid>
+    </Container>
   );
 };
