@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 
 import Avatar from "@mui/material/Avatar";
@@ -14,6 +14,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import InputAdornment from "@mui/material/InputAdornment";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import Alert from "@mui/material/Alert";
 
 import { AUTH_USER } from "../../../gql/mutations";
 
@@ -22,6 +23,7 @@ export const SignInPage = () => {
     password: "",
     showPassword: false,
   });
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleChange = (prop) => (event) => {
     setValue({ ...value, [prop]: event.target.value });
@@ -50,12 +52,29 @@ export const SignInPage = () => {
       .then((res) => {
         const { token } = res.data.signIn;
 
-        if (loading) return "Submitting...";
-
         localStorage.setItem("token", token);
+        return setErrorMessage(
+          <Alert
+            severity="success"
+            onClose={() => {
+              setErrorMessage(false);
+            }}
+          >
+            Login Successfully
+          </Alert>
+        );
       })
       .catch((error) => {
-        return alert(`${error.message}`);
+        return setErrorMessage(
+          <Alert
+            severity="error"
+            onClose={() => {
+              setErrorMessage(false);
+            }}
+          >
+            {error.message}
+          </Alert>
+        );
       });
 
     event.target.reset();
@@ -67,12 +86,23 @@ export const SignInPage = () => {
       <Container component="main" sx={{ height: "100vh" }}>
         <Box
           sx={{
+            position: "absolute",
+            right: 10,
+            top: 10,
+            textAlign: "center",
+          }}
+        >
+          <>{errorMessage}</>
+        </Box>
+        <Box
+          sx={{
             my: 8,
             mx: "auto",
             px: 2,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "#1565C0" }}>

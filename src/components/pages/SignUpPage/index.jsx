@@ -19,6 +19,7 @@ import { CREATE_USER } from "../../../gql/mutations";
 
 export const SignUpPage = () => {
   const [value, setValue] = useState(new Date());
+  const [errorMessage, setErrorMessage] = useState(false);
   const [createUser, { loading, error }] = useMutation(CREATE_USER);
 
   const handleSubmit = (event) => {
@@ -38,7 +39,10 @@ export const SignUpPage = () => {
         if (res) return "User created";
       })
       .catch((error) => {
-        return console.log(`${error.message}`);
+        return setTimeout(() => {
+          setErrorMessage(<Alert severity="error">{error.message}</Alert>);
+        }, 2000);
+        clearTimeout();
       });
 
     event.currentTarget.reset();
@@ -46,6 +50,15 @@ export const SignUpPage = () => {
 
   return (
     <Container component="main" sx={{ height: "100vh" }}>
+      <Box
+        sx={{
+          position: "absolute",
+          right: 10,
+          top: 10,
+        }}
+      >
+        <>{errorMessage}</>
+      </Box>
       <Box
         sx={{
           my: 8,
