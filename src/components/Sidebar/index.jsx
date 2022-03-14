@@ -96,12 +96,14 @@ export const Sidebar = () => {
             </Link>
           </List>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <EditOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Edit Post" />
-            </ListItemButton>
+            <Link to={`/dashboard/edit-post`}>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <EditOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Edit Post" />
+              </ListItemButton>
+            </Link>
           </List>
           <List component="div" disablePadding>
             <Link to={`/dashboard/posts`}>
