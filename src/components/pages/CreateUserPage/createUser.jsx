@@ -6,18 +6,16 @@ import TextField from "@mui/material/TextField";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
-import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 import { CREATE_USER } from "../../../gql/mutations";
 
-export const SignUpPage = () => {
+export const CreateUser = () => {
   const [value, setValue] = useState(new Date());
   const [errorMessage, setErrorMessage] = useState(false);
   const [createUser, { loading, error }] = useMutation(CREATE_USER);
@@ -42,7 +40,6 @@ export const SignUpPage = () => {
         return setTimeout(() => {
           setErrorMessage(<Alert severity="error">{error.message}</Alert>);
         }, 2000);
-        clearTimeout();
       });
 
     event.currentTarget.reset();
@@ -70,10 +67,10 @@ export const SignUpPage = () => {
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "#1565C0" }}>
-          <LockOutlinedIcon />
+          <AccountCircleOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Create a new user
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -131,15 +128,8 @@ export const SignUpPage = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2, padding: 1.5 }}
           >
-            Sign Up
+            Create user
           </Button>
-          <Grid container justifyContent="flex-end">
-            <Grid item>
-              <Link href="/" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
         </Box>
       </Box>
     </Container>
