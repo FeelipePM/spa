@@ -1,17 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import { Sidebar } from "../../../components/Sidebar/index";
-import { ContainerSidebar } from "../../ContainerSidebar";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+import Box from '@mui/material/Box';
+import { Sidebar } from '../../Sidebar';
+import { ContainerSidebar } from '../../ContainerSidebar';
 
-export const NewPostPage = () => {
+import { NewPost } from './NewPost';
+
+export function NewPostPage() {
   return (
     <ContainerSidebar>
       <Sidebar />
-      <Box sx={{ display: "flex", flex: 1 }}>
-        <Container>{<h1>NewPost</h1>}</Container>
+      <Box sx={{ display: 'flex', flex: 1 }}>
+        <NewPost />
       </Box>
     </ContainerSidebar>
   );
-};
+}
