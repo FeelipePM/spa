@@ -1,37 +1,37 @@
-import React from "react";
+import React from 'react';
 
-import { Sidebar } from "../../../components/Sidebar/index";
-import { ContainerSidebar } from "../../ContainerSidebar";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { ContainerSidebar } from '../../ContainerSidebar';
+import { Sidebar } from '../../Sidebar/index';
 
-export const PostsPage = () => {
+export function PostsPage() {
   return (
     <ContainerSidebar>
       <Sidebar />
-      <Box sx={{ display: "flex", flex: 1 }}>
+      <Box sx={{ display: 'flex', flex: 1 }}>
         <Container>
           <Typography
             variant="h5"
             component="div"
             sx={{
-              my: "1rem",
+              my: '1rem',
             }}
           >
             Posts
           </Typography>
           <Box
             sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-evenly",
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-evenly',
             }}
           >
-            <Card sx={{ maxWidth: 345, marginBottom: "20px" }}>
+            <Card sx={{ maxWidth: 345, marginBottom: '20px' }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -46,13 +46,13 @@ export const PostsPage = () => {
                 <Typography
                   variant="body2"
                   component="div"
-                  sx={{ mt: 2, display: "flex", justifyContent: "flex-end" }}
+                  sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}
                 >
                   Marija Najdova
                 </Typography>
               </CardContent>
             </Card>
-            <Card sx={{ maxWidth: 345, marginBottom: "20px" }}>
+            <Card sx={{ maxWidth: 345, marginBottom: '20px' }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -67,13 +67,13 @@ export const PostsPage = () => {
                 <Typography
                   variant="body2"
                   component="div"
-                  sx={{ mt: 2, display: "flex", justifyContent: "flex-end" }}
+                  sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}
                 >
                   Marija Najdova
                 </Typography>
               </CardContent>
             </Card>
-            <Card sx={{ maxWidth: 345, marginBottom: "20px" }}>
+            <Card sx={{ maxWidth: 345, marginBottom: '20px' }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -88,7 +88,7 @@ export const PostsPage = () => {
                 <Typography
                   variant="body2"
                   component="div"
-                  sx={{ mt: 2, display: "flex", justifyContent: "flex-end" }}
+                  sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}
                 >
                   Marija Najdova
                 </Typography>
@@ -99,4 +99,4 @@ export const PostsPage = () => {
       </Box>
     </ContainerSidebar>
   );
-};
+}

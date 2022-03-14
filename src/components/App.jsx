@@ -1,13 +1,13 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import { ApolloProvider } from "@apollo/client";
-import { RoutesPath } from "../Routes";
+import { ApolloProvider } from '@apollo/client';
+import { RoutesPath } from '../Routes';
 
-import { GlobalStyles } from "../themes";
-import { client } from "../gql/apolloConfig";
+import { GlobalStyles } from '../themes';
+import { client } from '../gql/apolloConfig';
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
       <ApolloProvider client={client}>
@@ -16,6 +16,6 @@ const App = () => {
       </ApolloProvider>
     </BrowserRouter>
   );
-};
+}
 
 export default App;

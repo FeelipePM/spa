@@ -34,7 +34,6 @@ export function EditPost() {
         </Typography>
         <Box
           component="form"
-          onSubmit={console.log('submit')}
           noValidate
           sx={{ mt: 1 }}
         >
