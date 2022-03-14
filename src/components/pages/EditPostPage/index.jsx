@@ -4,14 +4,14 @@ import Box from '@mui/material/Box';
 import { Sidebar } from '../../Sidebar';
 import { ContainerSidebar } from '../../ContainerSidebar';
 
-import { NewPost } from './NewPost';
+import { EditPost } from './EditPost';
 
-export function NewPostPage() {
+export function EditPostPage() {
   return (
     <ContainerSidebar>
       <Sidebar />
       <Box sx={{ display: 'flex', flex: 1 }}>
-        <NewPost />
+        <EditPost />
       </Box>
     </ContainerSidebar>
   );
