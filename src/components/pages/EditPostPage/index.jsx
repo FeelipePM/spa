@@ -1,19 +1,17 @@
 import React from 'react';
 
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { Sidebar } from '../../Sidebar/index';
+import { Sidebar } from '../../Sidebar';
 import { ContainerSidebar } from '../../ContainerSidebar';
-import { CreateUser } from './createUser';
 
-export function CreateUserPage() {
+import { EditPost } from './EditPost';
+
+export function EditPostPage() {
   return (
     <ContainerSidebar>
       <Sidebar />
       <Box sx={{ display: 'flex', flex: 1 }}>
-        <Container>
-          <CreateUser />
-        </Container>
+        <EditPost />
       </Box>
     </ContainerSidebar>
   );
