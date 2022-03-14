@@ -1,21 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import { Sidebar } from "../../../components/Sidebar/index";
-import { ContainerSidebar } from "../../ContainerSidebar";
-import { CreateUser } from "./createUser";
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import { Sidebar } from '../../Sidebar/index';
+import { ContainerSidebar } from '../../ContainerSidebar';
+import { CreateUser } from './createUser';
 
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-
-export const CreateUserPage = () => {
+export function CreateUserPage() {
   return (
     <ContainerSidebar>
       <Sidebar />
-      <Box sx={{ display: "flex", flex: 1 }}>
+      <Box sx={{ display: 'flex', flex: 1 }}>
         <Container>
           <CreateUser />
         </Container>
       </Box>
     </ContainerSidebar>
   );
-};
+}

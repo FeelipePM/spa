@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { Sidebar } from "../../../components/Sidebar/index";
-import { ContainerSidebar } from "../../ContainerSidebar";
+import { Sidebar } from '../../Sidebar/index';
+import { ContainerSidebar } from '../../ContainerSidebar';
 
-export const DashboardPage = () => {
+export function DashboardPage() {
   return (
     <ContainerSidebar>
       <Sidebar />
     </ContainerSidebar>
   );
-};
+}
